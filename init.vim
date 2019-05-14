@@ -65,7 +65,7 @@ nmap <C-Tab> gT
 vmap <C-Tab> gT
 
 " SYNTASTIC : NASM
-if has("unix")
+if has("unix") || has("macunix")
     let s:uname = system("uname -s")
     if s:uname == "Darwin"
         let g:python2_host_prog = '/usr/local/bin/python'
