@@ -80,7 +80,10 @@ endif
 " YCM SETTINGS
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/'
+
+" Command to get our rust path thanks to the help of rustc.
+let g:ycm_rust_src_path = system('rustc --print sysroot') + '/lib/rustlib/src/rust/src'
+    
 nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
 nnoremap <leader>D :YcmCompleter GoToDeclaration<cr>
 
