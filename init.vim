@@ -65,19 +65,16 @@ nmap <C-Tab> gT
 vmap <C-Tab> gT
 
 " SYNTASTIC : NASM
-if has("unix") || has("macunix")
-    let osuname = system("uname -s")
-    if osuname == "Darwin"
-        let g:python2_host_prog = '/usr/local/bin/python'
-        let g:python3_host_prog = '/usr/local/bin/python3'
-        let g:syntastic_nasm_nasm_args = '-f macho64 -F'
-        let g:ale_nasm_nasm_options = '-f macho64 -F'
-    else
-        let g:python2_host_prog = '/usr/bin/python'
-        let g:python3_host_prog = '/usr/bin/python3'
-        let g_syntastic_nasm_nasm_args = '-f elf64 -F'
-        let g:ale_nasm_nasm_options = '-f elf64 -F'
-    endif
+if has("macunix")
+    let g:python2_host_prog = '/usr/local/bin/python'
+    let g:python3_host_prog = '/usr/local/bin/python3'
+    let g:syntastic_nasm_nasm_args = '-f macho64 -F'
+    let g:ale_nasm_nasm_options = '-f macho64 -F'
+elseif has("unix")
+    let g:python2_host_prog = '/usr/bin/python'
+    let g:python3_host_prog = '/usr/bin/python3'
+    let g_syntastic_nasm_nasm_args = '-f elf64 -F'
+    let g:ale_nasm_nasm_options = '-f elf64 -F'
 endif
 
 " YCM SETTINGS
