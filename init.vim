@@ -68,8 +68,8 @@ vmap <C-Tab> gT
 if has("unix")
     let s:uname = system("uname -s")
     if s:uname == "Darwin"
-        let g:python2_host_prog = '/usr/local/bin/python'
-        let g:python3_host_prog = '/usr/local/bin/python3'
+        let g:python2_host_prog = '/usr/bin/python'
+        let g:python3_host_prog = '/usr/bin/python3'
         let g:syntastic_nasm_nasm_args = '-f macho64 -F'
         let g:ale_nasm_nasm_options = '-f macho64 -F'
     else
